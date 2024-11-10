@@ -1,0 +1,13 @@
+#in123 {
+    background-image: url(./car.jpg);
+    overflow: hidden;
+}
+
+#in124 {
+    border-radius: 10%;
+}
+
+#exp {
+    font-size: 48px;
+    text-shadow: rgba(19, 18, 18, 0.35) 5px 0px 55px;
+}
