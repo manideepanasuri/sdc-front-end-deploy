@@ -10,10 +10,6 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    env:
-      VITE_API_KEY: ${{secrets.VITE_API_KEY}}
-      VITE_BACKEND_HOST: ${{secrets.VITE_BACKEND_HOST}}
-      VITE_JWT_SECRET: ${{secrets.VITE_JWT_SECRET}}
 
     steps:
       - name: Checkout repo
@@ -21,6 +17,12 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v3
+
+      - name: Create .env file
+        run: |
+          echo "VITE_API_KEY=${{ secrets.VITE_API_KEY }}" >> .env
+          echo "VITE_BACKEND_HOST=${{ secrets.VITE_BACKEND_HOST }}" >> .env
+          echo "VITE_JWT_SECRET=${{ secrets.VITE_JWT_SECRET }}" >> .env
 
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
